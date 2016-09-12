@@ -1,0 +1,8 @@
+The 4 buttons operate the same way as hw01 where they correspond to the keyboard commands.
+They are supposed to simply run the script and it should run. It is programmed in javascript.
+
+Due to my SD card not being acepted by my board and not fully understanding why it isn't working, 
+I was unable to get the script to run on the board. When i run it run on my board. My board
+only accepts the 3.8 version of java script. So I am not sure if the error that appears when I run
+this script is because of a coding error or simply an incompatability between software and my hardware.
+I was unable to get in contact with another member in the class to test it.
