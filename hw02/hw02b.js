@@ -1,5 +1,4 @@
 
-
 // #!/usr/bin/env node
 var sys = require('bonescript');
 
@@ -27,12 +26,6 @@ sys.pinMode(led2, sys.OUTPUT);
 sys.pinMode(led3, sys.OUTPUT);
 sys.pinMode(led4, sys.OUTPUT);
 
-sys.attachInterrupt(button1, true, sys.FALLING, setRight);
-sys.attachInterrupt(button2, true, sys.FALLING, setDown);
-sys.attachInterrupt(button3, true, sys.FALLING, setLeft);
-sys.attachInterrupt(button4, true, sys.FALLING, setUp);
-sys.attachInterrupt(button5, true, sys.FALLING, clear);
-
 
 
 console.log('Beginning System Initiated. Commencing takeover of Earth...Dr. Yoder, what have you done');
@@ -54,6 +47,12 @@ for(i = 0; i < max; i++){
 		grid[i][j] =" ";
 	}
 }
+
+sys.attachInterrupt(button1, true, sys.FALLING, setRight);
+sys.attachInterrupt(button2, true, sys.FALLING, setDown);
+sys.attachInterrupt(button3, true, sys.FALLING, setLeft);
+sys.attachInterrupt(button4, true, sys.FALLING, setUp);
+sys.attachInterrupt(button5, true, sys.FALLING, clear);
 
 
 clear();	
