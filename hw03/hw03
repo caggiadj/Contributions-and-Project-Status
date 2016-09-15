@@ -1,0 +1,11 @@
+#!/bin/bash
+
+temp=`i2cget -y 2 0x48 0`
+temp=${temp:2:2}
+temp=$((16#$temp))
+echo "Temp 1 is " $[($temp*9/5) + 32] " F"
+temp2=`i2cget -y 2 0x4a 0`
+temp2=${temp2:2:2} 
+temp2=$((16#$temp))
+echo "Temp 2 is " $[($temp2*9/5) + 32] " F"
+
