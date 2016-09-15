@@ -1,11 +1,35 @@
 #!/bin/bash
 
-temp=`i2cget -y 2 0x48 0`
-temp=${temp:2:2}
-temp=$((16#$temp))
-echo "Temp 1 is " $[($temp*9/5) + 32] " F"
-temp2=`i2cget -y 2 0x4a 0`
-temp2=${temp2:2:2} 
-temp2=$((16#$temp))
-echo "Temp 2 is " $[($temp2*9/5) + 32] " F"
 
+i2cset -y 2 0x48 2 0x1a #sets the min and max to about 68 and 80ish ferengiet
+i2cset -y 2 0x48 3 0x1b
+i2cset -y 2 0x4a 2 0x1a
+i2cset -y 2 0x4a 3 0x1b
+
+alert1=0;
+alert2=0;
+
+while [ "foo" == "foo" ]
+do
+
+    pi=`i2cget -y 2 0x48 1`
+
+    pi2=`i2cget -y 2 0x4a 1`
+
+    if [ $pi == "0x00" ] 
+        then
+        alert1=1
+        temp=`i2cget -y 2 0x48 0`
+        temp=${temp:2:2}
+        temp=$((16#$temp))
+        echo "Temp 1 is " $[($temp*9/5) + 32] " F"
+    fi
+    if [ $pi2 == "0x00" ] 
+        then
+        
+        temp2=`i2cget -y 2 0x4a 0`
+        temp2=${temp2:2:2} 
+        temp2=$((16#$temp2))
+        echo "Temp 2 is " $[($temp2*9/5) + 32] " F"
+    fi
+done
